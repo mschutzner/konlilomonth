@@ -3785,6 +3785,12 @@ function saveGame() {
         cameraX: rooms[index].cameraX,
         cameraY: rooms[index].cameraY
       };
+      if (index === 32) {
+        newRooms[index].mask0Path =
+          "https://sprites.losingisfun.org/32-mask.png";
+        newRooms[index].mask1Path =
+          "https://sprites.losingisfun.org/32-mask-1.png";
+      }
     } else {
       newRooms[index] = rooms[index];
     }
@@ -6069,8 +6075,8 @@ async function init() {
       room: new Room(
         `pots`,
         "https://sprites.losingisfun.org/32.png",
-        "https://sprites.losingisfun.org/36-mask-0.png",
-        "https://sprites.losingisfun.org/36-mask-1.png",
+        "https://sprites.losingisfun.org/32-mask.png",
+        "https://sprites.losingisfun.org/32-mask-1.png",
         false,
         false,
         [],
