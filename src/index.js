@@ -3315,6 +3315,20 @@ function isMobileDeviceWithTouch() {
   return (isMobileDevice || isIpadOS) && hasTouchSupport;
 }
 
+function drawLoadingBar(percentage) {
+  // Clear previous loading bar
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the outer rectangle (border of the loading bar)
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(10, canvas.height / 2 - 10, canvas.width - 20, 20);
+
+  // Draw the inner rectangle (fill of the loading bar)
+  ctx.fillStyle = "green";
+  ctx.fillRect(12, canvas.height / 2 - 8, (canvas.width - 24) * percentage, 16);
+}
+
 function loadImage(src, msg) {
   return new Promise((resolve, reject) => {
     var img = new Image();
@@ -6500,6 +6514,10 @@ sprites.map((sprite) => {
   return loadImage(sprite.src).then((img) => {
     sprite.image = img;
     loadedSprites++;
+
+    // Update the loading bar
+    drawLoadingBar(loadedSprites / totalSprites);
+
     if (loadedSprites >= totalSprites) {
       console.log("All sprites loaded.");
       for (var i = 0; i < 8; i++) {
