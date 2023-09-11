@@ -1,0 +1,31 @@
+@viewport {
+  width: device-width;
+  zoom: 1;
+}
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font-family: Sans-Serif;
+  margin: 0;
+}
+canvas {
+  width: 100%;
+  background-color: #110c17;
+  image-rendering: pixelated;
+  display: block;
+}
+#controlsCanvas {
+  background: transparent;
+  display: none;
+}
+#canvasWrapper {
+  width: 100%;
+  max-width: 746px;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
